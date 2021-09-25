@@ -1,6 +1,6 @@
 import os
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 class Config:
   SQLALCHEMY_TRACK_MODIFICATIONS=True
@@ -29,11 +29,11 @@ class DevConfig(Config):
   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog_api'
   DEBUG = True
 
-# class TestConfig(Config):
-#   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog_test'
+class TestConfig(Config):
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog_test'
 
 config_options = {
   'production':ProdConfig,
   'development':DevConfig,
-  # 'test':TestConfig
+  'test':TestConfig
 }
